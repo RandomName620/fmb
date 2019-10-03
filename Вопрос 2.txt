@@ -1,0 +1,6 @@
+SELECT Topic, Name FROM Articles AS tl
+    LEFT JOIN
+        (SELECT ArticleID, Name FROM Articles_To_Tags_Links AS t1
+            INNER JOIN Tags AS t2
+            ON t1.TagID = t2.ID) AS tr
+    ON tl.ID = tr.ArticleID
